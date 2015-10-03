@@ -1,0 +1,3 @@
+#FRC Mapping
+
+I've noticed that it's become difficult to locate FRC teams even though all the information is widely available. I saw that someone made a website where people could input their team and it would show their team's location on a map. While this is all fine and dandy, not all teams know about this website nor are they required to add their information. I decided that I could help remedy this problem by mapping every FRC team using web technologies. Hopefully this project will be completed by the start of the 2016 season so that teams can use this tool to find other teams in their area to scrimmage with or talk to. Feel free to raise issues, fork, or make pull requests. 
