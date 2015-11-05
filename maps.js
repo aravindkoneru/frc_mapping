@@ -9,74 +9,48 @@ var publicConfig = {
 };
 var gm = new GoogleMapsAPI(publicConfig);
 
-var params = {
-  center: 'Cheshire, CT, USA',
-  zoom: 15,
-  size: '4096 x 216',
-  maptype: 'roadmap',
-  markers: [
-    {
-        location: 'Cheshire, CT, USA',
-      label   : '',
-      color   : 'green',
-      shadow  : true
-    }
-  ],
-  style: [
-    {
-      feature: 'road',
-      element: 'all',
-      rules: {
-        hue: '0x00ff00'
-      }
-    }
-  ],
-  path: [
-    {
-      color: '0x0000ff',
-      weight: '5',
-      points: [
-        '41.139817,-77.454439',
-        '41.138621,-77.451596'
-      ]
-    }
-  ]
-}
-
-console.log(gm.staticMap(params));
+//console.log(gm.staticMap(params));
 
 function generateRequestObject(teamLoc, teamNum){
-var params = {
-  center: teamLoc,
-  zoom: 15,
-  size: '500x400',
-  maptype: 'roadmap',
-  markers: [
-    {
+  var params = {
+    center: teamLoc,
+    zoom: 15,
+    size: '500x400',
+    maptype: 'roadmap',
+    markers: [
+      {
         location: teamLoc,
-      label   : teamNum,
-      color   : 'green',
-      shadow  : true
-    }
-  ],
-  style: [
-    {
-      feature: 'road',
-      element: 'all',
-      rules: {
-        hue: '0x00ff00'
+        label   : teamNum,
+        color   : 'green',
+        shadow  : true
       }
-    }
-  ],
-  path: [
-    {
-      color: '0x0000ff',
-      weight: '5',
-      points: [
-        '41.139817,-77.454439',
-        '41.138621,-77.451596'
-      ]
-    }
-  ]
-};
+    ],
+    style: [
+      {
+        feature: 'road',
+        element: 'all',
+        rules: {
+          hue: '0x00ff00'
+        }
+      }
+    ],
+    path: [
+      {
+        color: '0x0000ff',
+        weight: '5',
+        points: [
+          '41.139817,-77.454439',
+          '41.138621,-77.451596'
+        ]
+      }
+    ]
+  };
+
+  return gm.staticMap(params);
+}
+
+module.exports = {
+  generateMap: function(location, number){
+    return generateRequestObject(location, number);
+  }
 }

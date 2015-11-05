@@ -1,5 +1,6 @@
 var http = require('http');
 var Q = require('q');
+var maps = require('./maps');
 
 //this function will call the team list
 //typeof pagenum = int
@@ -73,7 +74,10 @@ promise
     return parseList(teamList);    
 })
 .then(function(teamsObject){
-    console.log(teamsObject);
+	var map_url = maps.generateMap(teamsObject[0].location, teamsObject[0].number);
+	console.log(map_url);
+
+    //console.log(teamsObject);
 });
 
 
